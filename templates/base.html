@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="icon" type="image/x-icon" href="{% static 'images/crane.jpg' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
     <title>VEGASTROY LTD</title>
 </head>
 
@@ -30,7 +31,7 @@
 
 
                 <ul class="nav-group">
-                    <form method="post" action="{% url 'login' %}">
+                    <form method="post" action="{% url 'project_index' %}">
                         {% csrf_token %}
                         <button class="button" type="submit">Our Projects</button>
                     </form>
@@ -47,7 +48,7 @@
 
                     <form method="post" action="{% url 'contacts_page' %}">
                         {% csrf_token %}
-                        <button class="button" type="submit">Contacts</button>
+                        <button class="button" type="submit">Contact Us</button>
                     </form>
 
                     {% if not request.user.is_authenticated %}

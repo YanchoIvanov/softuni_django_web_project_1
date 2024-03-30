@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/project_index.css' %}">
+    <div>
+<h1 style="margin-left: 75px">Projects</h1>
+    </div>
+    <br>
+<div class="row">
+{% for project in projects %}
+    <div class="col-md-4" style="margin-top: 50px">
+        <div class="card mb-2" style="
+        margin-top: 60px;
+        backdrop-filter: blur(10px)">
+            {% if project.image %}
+                <img class="card-img-top" src="{{ project.image.url }}">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ project.title }}</h5>
+                <p class="card-text">{{ project.description }}</p>
+                <a href="{% url 'project_detail' project.pk %}"
+                   class="btn btn-primary">
+                    Read More
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

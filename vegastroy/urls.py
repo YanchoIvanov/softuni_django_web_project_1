@@ -7,7 +7,8 @@ urlpatterns = [
     path('', include('vegastroy.web.urls')),
     path('accounts/', include('vegastroy.accounts.urls')),
     path('ask_for_offer/', include('vegastroy.ask_for_offer.urls')),
-    path('contacs/', include('vegastroy.contacts.urls')),
+    path('contacts/', include('vegastroy.contacts.urls')),
+    path('our_projects/', include('vegastroy.projects.urls')),
 
 ]
 
