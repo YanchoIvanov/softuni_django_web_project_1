@@ -1,37 +1,63 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load custom_filters %}
+
+<head>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/crane.jpg' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <title>VEGASTROY LTD</title>
+</head>
+
+
 {% block content %}
-
-<!-- Starts Main Section -->
-<main>
-
-    <!-- Start Login Section-->
-    <div class="login-register-div">
-        <div class="login-register-box">
-            <h1>VEGASTROY LTD.</h1>
-
-            <!-- Start Login Form-->
-            <form action="{% url 'login' %}?next={{ next }}" method="post">
-                {% csrf_token %}
-                {{ form.username|placeholder:'Email' }}
-                {{ form.password|placeholder:'Password' }}
-
-                <!-- Login Button-->
-                <button type="submit">Log in</button>
-            </form>
-            <!-- End Login Form -->
-
-        </div>
-        <div class="second-option">
-
-            <!-- Link to Register Page-->
-            <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
-        </div>
+        <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <div class="login-background">
+        <div class="shape"></div>
+        <div class="shape"></div>
     </div>
-    <!-- End Login Section-->
 
-</main>
-<!-- End Main Section -->
+
+
+    <form action="{% url 'login' %}?next={{ next }}" method="post"
+    style="
+    height: 520px;
+    width: 400px;
+    background-color: rgba(255,255,255,0.13);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+
+        font-family: 'Poppins',sans-serif;
+        color: black;
+        letter-spacing: 0.5px;
+        outline: none;
+">
+        <h3 style="
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 42px;
+        text-align: center;">Login Here</h3>
+        {% csrf_token %}
+        {{ form.username|placeholder:'Email' }}
+        {{ form.password|placeholder:'Password' }}
+        <br>
+        <div style="text-align:center;">
+        <button class="button-login" type="submit">Login</button>
+        </div>
+        <div class="social">
+          <div class="go"><i class="fab fa-google"></i>  Google</div>
+          <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
+        </div>
+    </form>
+
+
 
 {% endblock %}

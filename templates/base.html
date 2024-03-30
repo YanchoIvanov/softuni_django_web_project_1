@@ -30,7 +30,7 @@
 
 
                 <ul class="nav-group">
-                    <form method="post" action="#">
+                    <form method="post" action="{% url 'login' %}">
                         {% csrf_token %}
                         <button class="button" type="submit">Our Projects</button>
                     </form>
@@ -40,7 +40,7 @@
                         <button class="button" type="submit">Ask For Offer</button>
                     </form>
 
-                    <form method="post" action="#">
+                    <form method="post" action="{% url 'login' %}">
                         {% csrf_token %}
                         <button class="button" type="submit">For Rent</button>
                     </form>
@@ -80,26 +80,11 @@
     </nav>
 </header>
 
-
 <main>
-      <section class="hero">
-    <div class="hero-content">
-      <h1>Welcome to Construction Company</h1>
-      <p>Your trusted partner in construction projects</p>
-        <h2>Construction Services</h2>
-      <p>We offer a wide range of construction services including...</p>
-      <ul>
-        <li>Residential Construction</li>
-        <li>Commercial Construction</li>
-        <li>Renovation and Remodeling</li>
-        <li>Interior Design</li>
-        <li>...And More!</li>
-        <!-- Add more services here -->
-      </ul>
-    </div>
-  </section>
-</main>
+    {% block content %}
 
+    {% endblock %}
+</main>
 
 <footer>
   <div class="container">
@@ -111,8 +96,6 @@
     <p>&copy; 2024 All Rights Reserved by eng. Yancho Ivanov</p>
   </div>
 </footer>
-
-
 
 
 </body>
