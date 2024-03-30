@@ -1,0 +1,14 @@
+{#{% extends 'base.html' %}#}
+{##}
+{#{% block content %}#}
+# TODO css
+    <h1>You have successfully made an inquiry! You will be redirected to the home page.</h1>
+    <p>If you are not redirected in a few seconds, <a href="{% url 'home_page' %}">click here</a>.</p>
+    <script>
+        setTimeout(function(){
+                window.location.href = '/';
+            }, 5000);
+    </script>
+
+{#{% endblock %}#}
+

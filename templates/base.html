@@ -1,0 +1,119 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'images/crane.jpg' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>VEGASTROY LTD</title>
+</head>
+
+
+<body>
+
+
+<header>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="{% url 'home_page' %}">
+                    <img width="80px" src="{% static 'images/vegastroy.JPG' %}" alt="img1">
+                </a>
+
+
+                <a class="home" href="{% url 'home_page' %}">
+                    <i>VEGASTROY LTD</i>
+                </a>
+            </div>
+
+
+                <ul class="nav-group">
+                    <form method="post" action="#">
+                        {% csrf_token %}
+                        <button class="button" type="submit">Our Projects</button>
+                    </form>
+
+                    <form method="post" action="{% url 'contact_form_offer' %}">
+                        {% csrf_token %}
+                        <button class="button" type="submit">Ask For Offer</button>
+                    </form>
+
+                    <form method="post" action="#">
+                        {% csrf_token %}
+                        <button class="button" type="submit">For Rent</button>
+                    </form>
+
+                    <form method="post" action="{% url 'contacts_page' %}">
+                        {% csrf_token %}
+                        <button class="button" type="submit">Contacts</button>
+                    </form>
+
+                    {% if not request.user.is_authenticated %}
+
+                    <form method="post" action="{% url 'login' %}">
+                        {% csrf_token %}
+                        <button class="button" type="submit">Login</button>
+                    </form>
+
+                    <form method="post" action="{% url 'register' %}">
+                        {% csrf_token %}
+                        <button class="button" type="submit">Register</button>
+                    </form>
+
+                    {% else %}
+
+                    <form method="post" action="{% url 'profile_details' request.user.pk %}">
+                        {% csrf_token %}
+                        <button class="button" type="submit">Profile</button>
+                    </form>
+
+                    <form method="post" action="{% url 'logout' %}">
+                        {% csrf_token %}
+                        <button class="button" type="submit">Logout</button>
+                    </form>
+
+                    {% endif %}
+                </ul>
+        </div>
+    </nav>
+</header>
+
+
+<main>
+      <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Construction Company</h1>
+      <p>Your trusted partner in construction projects</p>
+        <h2>Construction Services</h2>
+      <p>We offer a wide range of construction services including...</p>
+      <ul>
+        <li>Residential Construction</li>
+        <li>Commercial Construction</li>
+        <li>Renovation and Remodeling</li>
+        <li>Interior Design</li>
+        <li>...And More!</li>
+        <!-- Add more services here -->
+      </ul>
+    </div>
+  </section>
+</main>
+
+
+<footer>
+  <div class="container">
+    <div class="social-icons">
+      <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+      <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p>&copy; 2024 All Rights Reserved by eng. Yancho Ivanov</p>
+  </div>
+</footer>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+      <!-- profile details section -->
+      <section id="car-details">
+        <h1>Profile Details</h1>
+        <div class="info-section">
+          <div class="car-header">
+
+
+            <img
+              class="car-img"
+              src="{% static '/images/profile-placeholder.jpg' %}"
+              alt="profile-image"
+            />
+              {% if object.image_url %}
+            <!-- if the user has a profile image -->
+            <img class="car-img" src="" alt="profile-image" />
+              {% endif %}
+
+              {% if object.first_name or object.last_name %}
+            <!-- user full name (if any) -->
+            <h1>{{ object.first_name }} {{ object.last_name }}</h1>
+              {% endif %}
+
+            <!-- user email -->
+            <p class="description">Email: {{ object.email }}</p>
+
+            <!-- user birth -->
+            <p class="description">Date of Birth: {{ object.date_if_birth }}</p>
+
+            <!-- Edit/Delete buttons -->
+            <div class="buttons">
+              <a href="{% url 'profile_edit' request.user.pk %}" class="edit-button">Edit</a>
+              <a href="{% url 'profile_delete' request.user.pk %}" class="delete-button">Delete</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+{% endblock %}

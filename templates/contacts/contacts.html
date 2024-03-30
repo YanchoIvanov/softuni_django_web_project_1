@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container">
+        <div class="main-content">
+            <h2>About Us</h2>
+            <p>{{ company_description }}</p>
+            <h2>Contact Information</h2>
+            <p><strong>Address:</strong> {{ company_address }}</p>
+            <p><strong>Phone:</strong> {{ company_phone }}</p>
+            <p><strong>Email:</strong> <a href="mailto:{{ company_email }}">{{ company_email }}</a></p>
+        </div>
+    </div>
+
+{% endblock %}
