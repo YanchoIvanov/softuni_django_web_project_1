@@ -7,4 +7,4 @@ from django.conf.urls.static import static
 urlpatterns = [
     path("", project_index, name="project_index"),
     path("<int:pk>/", project_detail, name="project_detail"),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
