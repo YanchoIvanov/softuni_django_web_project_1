@@ -1,16 +1,15 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
-      <!-- edit profile form -->
-      <section id="register-page" class="content auth">
+    <section id="register-page" class="content auth">
+      <link rel="stylesheet" href="{% static 'css/profile_edit.css' %}">
         <form action="{% url 'profile_edit' request.user.pk %}" method="POST">
-          <div class="container">
+          <div class="edit-container">
             <h1>Edit Profile</h1>
-            {{ form }}
-
-            <!-- Edit Button -->
-            <input class="btn" type="submit" value="Edit Profile" />
               {% csrf_token %}
+              {{ form }}
+            <input class="btn" type="submit" value="Edit Profile" />
           </div>
         </form>
       </section>
