@@ -1,16 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
-
 {% block content %}
 
   <section id="create-page" class="auth">
-
-      <div class="container">
+      <link rel="stylesheet" href="{% static 'css/profile_delete.css' %}">
+      <div class="delete-container">
         <h1>Are you sure you want to delete your account?</h1>
-          <!-- Delete Profile Form -->
         <form action="{% url 'profile_delete' request.user.pk %}" method="POST">
 
-        <!-- Confirm Button -->
         <input class="btn submit" type="submit" value="Yes">
             {% csrf_token %}
 
