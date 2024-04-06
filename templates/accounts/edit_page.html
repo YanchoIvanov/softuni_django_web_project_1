@@ -3,15 +3,15 @@
 {% block content %}
 
     <section id="register-page" class="content auth">
-      <link rel="stylesheet" href="{% static 'css/profile_edit.css' %}">
+        <link rel="stylesheet" href="{% static 'css/profile_edit.css' %}">
         <form action="{% url 'profile_edit' request.user.pk %}" method="POST">
-          <div class="edit-container">
-            <h1>Edit Profile</h1>
-              {% csrf_token %}
-              {{ form }}
-            <input class="btn" type="submit" value="Edit Profile" />
-          </div>
+            <div class="edit-container">
+                <h1>Edit Profile</h1>
+                {% csrf_token %}
+                {{ form }}
+                <input class="btn" type="submit" value="Edit Profile"/>
+            </div>
         </form>
-      </section>
+    </section>
 
 {% endblock %}

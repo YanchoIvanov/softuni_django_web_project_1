@@ -2,18 +2,15 @@
 {% load static %}
 {% block content %}
 
-  <section id="create-page" class="auth">
-      <link rel="stylesheet" href="{% static 'css/profile_delete.css' %}">
-      <div class="delete-container">
-        <h1>Are you sure you want to delete your account?</h1>
-        <form action="{% url 'profile_delete' request.user.pk %}" method="POST">
-
-        <input class="btn submit" type="submit" value="Yes">
-            {% csrf_token %}
-
-        </form>
-      </div>
-    <!-- End Delete Profile Form -->
-  </section>
+    <section id="create-page" class="auth">
+        <link rel="stylesheet" href="{% static 'css/profile_delete.css' %}">
+        <div class="delete-container">
+            <h1>Are you sure you want to delete your account?</h1>
+            <form action="{% url 'profile_delete' request.user.pk %}" method="POST">
+                <input class="btn submit" type="submit" value="Yes">
+                {% csrf_token %}
+            </form>
+        </div>
+    </section>
 
 {% endblock %}

@@ -30,28 +30,28 @@
             </div>
 
 
-                <ul class="nav-group">
-                    <form method="post" action="{% url 'project_index' %}">
-                        {% csrf_token %}
-                        <button class="button" type="submit">Our Projects</button>
-                    </form>
+            <ul class="nav-group">
+                <form method="post" action="{% url 'project_index' %}">
+                    {% csrf_token %}
+                    <button class="button" type="submit">Our Projects</button>
+                </form>
 
-                    <form method="post" action="{% url 'contact_form_offer' %}">
-                        {% csrf_token %}
-                        <button class="button" type="submit">Ask For Offer</button>
-                    </form>
+                <form method="post" action="{% url 'contact_form_offer' %}">
+                    {% csrf_token %}
+                    <button class="button" type="submit">Ask For Offer</button>
+                </form>
 
-                    <form method="post" action="{% url 'login' %}">
-                        {% csrf_token %}
-                        <button class="button" type="submit">For Rent</button>
-                    </form>
+                <form method="post" action="#">
+                    {% csrf_token %}
+                    <button class="button" type="submit">For Rent</button>
+                </form>
 
-                    <form method="post" action="{% url 'contacts_page' %}">
-                        {% csrf_token %}
-                        <button class="button" type="submit">Contact Us</button>
-                    </form>
+                <form method="post" action="{% url 'contacts_page' %}">
+                    {% csrf_token %}
+                    <button class="button" type="submit">Contact Us</button>
+                </form>
 
-                    {% if not request.user.is_authenticated %}
+                {% if not request.user.is_authenticated %}
 
                     <form method="post" action="{% url 'login' %}">
                         {% csrf_token %}
@@ -63,7 +63,7 @@
                         <button class="button" type="submit">Register</button>
                     </form>
 
-                    {% else %}
+                {% else %}
 
                     <form method="get" action="{% url 'profile_details' user.pk %}">
                         {% csrf_token %}
@@ -75,8 +75,8 @@
                         <button class="button" type="submit">Logout</button>
                     </form>
 
-                    {% endif %}
-                </ul>
+                {% endif %}
+            </ul>
         </div>
     </nav>
 </header>
@@ -88,14 +88,14 @@
 </main>
 
 <footer>
-  <div class="container">
-    <div class="social-icons">
-      <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
-      <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
-      <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+    <div class="container">
+        <div class="social-icons">
+            <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2024 All Rights Reserved by dipl. eng. Yancho Ivanov</p>
     </div>
-    <p>&copy; 2024 All Rights Reserved by dipl. eng. Yancho Ivanov</p>
-  </div>
 </footer>
 
 

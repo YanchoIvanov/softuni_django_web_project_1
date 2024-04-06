@@ -7,6 +7,22 @@
     box-sizing: border-box;
 }
 
+.login-background {
+    width: 430px;
+    height: 520px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+
+.login-background .shape {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+
 
 label {
     display: block;
@@ -31,7 +47,7 @@ input {
     color: black;
 }
 
-.button-login {
+.button-register {
     margin: auto;
     width: 100%;
     background-color: #ffffff;
@@ -42,32 +58,4 @@ input {
     border-radius: 5px;
     cursor: pointer;
     align-content: center;
-
-}
-
-.social {
-    margin-top: 30px;
-    display: flex;
-}
-
-.social div {
-    background: red;
-    width: 150px;
-    border-radius: 3px;
-    padding: 5px 10px 10px 5px;
-    background-color: rgba(255, 255, 255, 0.27);
-    color: black;
-    text-align: center;
-}
-
-.social div:hover {
-    background-color: rgba(255, 255, 255, 0.47);
-}
-
-.social .fb {
-    margin-left: 25px;
-}
-
-.social i {
-    margin-right: 4px;
 }

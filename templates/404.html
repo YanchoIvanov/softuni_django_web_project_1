@@ -1,4 +1,5 @@
-<!-- 404.html template -->
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,11 +45,14 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="emoji">😕</div>
-        <h1>Oops! Page Not Found</h1>
-        <p>We couldn't find the page you were looking for.</p>
-        <a class="btn btn-primary" href="{% url 'home_page' %}">Go back to Home</a>
-    </div>
-</body>
-</html>
+
+{% block content %}
+<div class="container">
+    <div class="emoji">😕</div>
+
+    <h1>Oops! Page Not Found</h1>
+    <p>We couldn't find the page you were looking for.</p>
+    <a class="btn btn-primary" href="{% url 'home_page' %}">Go back to Home</a>
+</div>
+
+{% endblock %}

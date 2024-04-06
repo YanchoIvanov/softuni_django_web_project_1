@@ -4,33 +4,57 @@
 {% block content %}
 
 
-    <!-- Start Register Section -->
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
     <div class="login-register-div">
         <div class="login-register-box">
-            <h1>VEGASTROY LTD.</h1>
 
-            <!-- Start Register Form -->
-            <form method="post">
+
+            <form method="post" style="
+            height: 520px;
+            width: 400px;
+            background-color: rgba(255,255,255,0.13);
+            position: absolute;
+            transform: translate(-50%,-50%);
+            top: 50%;
+            left: 50%;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.1);
+            box-shadow: 0 0 40px rgba(8,7,16,0.6);
+            padding: 50px 35px;
+
+        font-family: 'Poppins',sans-serif;
+        color: black;
+        letter-spacing: 0.5px;
+        outline: none;">
+
+                <h1 style="
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 42px;
+        text-align: center;">VEGASTROY LTD.</h1>
+
                 {% csrf_token %}
                 {{ form.email|placeholder:'Email' }}
-                {{ form.email.errors }}
                 {{ form.password1|placeholder:'Password' }}
-                {{ form.password1.errors }}
-                {{ form.password2|placeholder:'Password' }}
-                {{ form.password2.errors }}
+                {{ form.password2|placeholder:'Repeat Password' }}
 
-                <!-- Register Button -->
-                <button type="submit">Register</button>
+                <br>
+                <div style="text-align:center;">
+                    <button class="button-register" type="submit">Register</button>
+                </div>
+
+                <br>
+                <div class="second-option">
+                    <p>Have an account? <a href="{% url 'login' %}">Log in</a></p>
+                </div>
+
+
             </form>
-            <!-- End Register Form -->
 
         </div>
-        <div class="second-option">
 
-            <!-- Link to Login Page -->
-            <p>Have an account? <a href="{% url 'login' %}">Log in</a></p>
-        </div>
     </div>
-    <!-- End Register Section -->
+
 
 {% endblock %}

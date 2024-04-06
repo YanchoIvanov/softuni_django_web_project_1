@@ -1,57 +1,41 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load custom_filters %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'css/ask_for_offer.css' %}">
 
 {% block content %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ask_for_offer.css' %}">
+    <form class="form" action="" method="post" style="
+            margin-top: 50px;
+            height: 650px;
+            width: 400px;
+            background-color: rgba(255,255,255,0.13);
+            position: absolute;
+            transform: translate(-50%,-50%);
+            top: 50%;
+            left: 50%;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.1);
+            box-shadow: 0 0 40px rgba(8,7,16,0.6);
+            padding: 50px 35px;
 
-<form class="form" action="" method="post">
-    <input type="hidden" name="csrfmiddlewaretoken" value="yTF5g7ceTgkwsOimKxZpuV10DG4a1TWFwQ60pneu047lPvu6kTAlNYPfYEC9G8jq">
-    <tr>
-        <th>
-            <label for="id_email">Email:</label>
-        </th>
-        <td>
-            <input type="email" name="email" maxlength="254" required id="id_email">
-        </td>
-    </tr>
-        <tr>
-        <th>
-            <label for="id_name">Name:</label>
-        </th>
-        <td>
-            <input type="text" name="name" maxlength="254" required id="id_name">
-        </td>
-    </tr>
-
-    <tr>
-        <th>
-            <label for="id_phone_number">Phone Number:</label>
-        </th>
-        <td>
-            <input type="number" name="phone_number" maxlength="254" required id="id_phone_number">
-        </td>
-    </tr>
+        font-family: 'Poppins',sans-serif;
+        color: black;
+        letter-spacing: 0.5px;
+        outline: none;">
 
 
-    <tr>
-        <th>
-            <label for="id_subject">Subject:</label>
-        </th>
-        <td>
-            <input type="text" name="subject" maxlength="255" required id="id_subject">
-        </td>
-    </tr>
-    <tr>
-        <th>
-            <label for="id_message">Message:</label>
-        </th>
-        <td>
-            <textarea name="message" cols="40" rows="10" required id="id_message"></textarea>
-        </td>
-    </tr>
-    <input type="submit" value="Submit">
-    {% csrf_token %}
-</form>
+        {% csrf_token %}
+        {{ form.email|placeholder:'Email' }}
+        {{ form.name|placeholder:'Name' }}
+        {{ form.phone_number|placeholder:'Phone Number' }}
+        {{ form.subject|placeholder:'Subject' }}
+        {{ form.message|placeholder:'Message' }}
+
+        <input type="submit" value="Submit">
+
+
+    </form>
 
 {% endblock %}
