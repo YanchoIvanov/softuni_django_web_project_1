@@ -31,25 +31,7 @@
 
 
             <ul class="nav-group">
-                <form method="post" action="{% url 'project_index' %}">
-                    {% csrf_token %}
-                    <button class="button" type="submit">Our Projects</button>
-                </form>
 
-                <form method="post" action="{% url 'contact_form_offer' %}">
-                    {% csrf_token %}
-                    <button class="button" type="submit">Ask For Offer</button>
-                </form>
-
-                <form method="post" action="#">
-                    {% csrf_token %}
-                    <button class="button" type="submit">For Rent</button>
-                </form>
-
-                <form method="post" action="{% url 'contacts_page' %}">
-                    {% csrf_token %}
-                    <button class="button" type="submit">Contact Us</button>
-                </form>
 
                 {% if not request.user.is_authenticated %}
 
@@ -64,6 +46,30 @@
                     </form>
 
                 {% else %}
+                    <form method="post" action="{% url 'project_index' %}">
+                        {% csrf_token %}
+                        <button class="button" type="submit">Our Projects</button>
+                    </form>
+
+                    <form method="post" action="#">
+                        {% csrf_token %}
+                        <button class="button" type="submit">Blog</button>
+                    </form>
+
+                    <form method="post" action="{% url 'contact_form_offer' %}">
+                        {% csrf_token %}
+                        <button class="button" type="submit">Ask For Offer</button>
+                    </form>
+
+                    <form method="post" action="#">
+                        {% csrf_token %}
+                        <button class="button" type="submit">For Rent</button>
+                    </form>
+
+                    <form method="post" action="{% url 'contacts_page' %}">
+                        {% csrf_token %}
+                        <button class="button" type="submit">Contact Us</button>
+                    </form>
 
                     <form method="get" action="{% url 'profile_details' user.pk %}">
                         {% csrf_token %}

@@ -6,22 +6,25 @@
 <div style="margin-left: 300px">
     <div class="col-md-8" style="margin-top: 75px;">
         {% if project.image %}
-            <img src="{{ project.image.url }}" width="100%">
+            <img src="{{ project.image.url }}" width="100%" alt="Project Img">
         {% endif %}
-    </div>
-    <br>
-    <div class="title-text">
+
+        <br>
+
+        <div class="title-text">
     <h1 style="background-color: white;
     box-sizing: content-box;
-    opacity: 0.75;
     margin: auto;
-                ">{{ project.title }}</h1>
+    ">
+
+        {{ project.title }}</h1>
+
     </div>
-    <br>
     <div class="col-md-4" style="background-color: white;">
         <h5>About the project:</h5>
         <p>{{ project.description }}</p>
-        <br>
+    </div>
+
     </div>
 </div>
 </div>

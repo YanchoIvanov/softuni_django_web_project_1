@@ -3,30 +3,34 @@
 
 {% block content %}
     <link rel="stylesheet" href="{% static 'css/project_index.css' %}">
-    <div>
-<h1 style="align-self: center">Projects</h1>
-    </div>
-    <br>
-<div class="row">
-{% for project in projects %}
-    <div class="col-md-4" style="margin-top: 50px;">
-        <div class="card mb-2" style="
-        margin-top: 60px;
-        width: 350px;
-align-content: center">
-            {% if project.image %}
-                <img class="card-img-top" src="{{ project.image.url }}">
-            {% endif %}
-            <div class="card-body">
-                <h5 class="card-title">{{ project.title }}</h5>
-                <p class="card-text">{{ project.description }}</p>
-                <a href="{% url 'project_detail' project.pk %}"
-                   class="btn btn-primary">
-                    Read More
-                </a>
-            </div>
+
+    <div class="row" style="margin: auto;
+margin-top: 50px">
+        <div>
+        <h1 style="text-align: center;
+           margin: auto">Some of our projects!</h1>
         </div>
+        {% for project in projects %}
+
+            <div class="col-md-4" style="margin-top: 25px;">
+                <div class="card mb-2" style="
+                margin: auto;
+                width: 350px;
+                align-content: center">
+                    {% if project.image %}
+                        <img class="card-img-top" src="{{ project.image.url }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ project.title }}</h5>
+                        <p class="card-text">{{ project.description }}</p>
+                        <a href="{% url 'project_detail' project.pk %}"
+                           class="btn btn-primary">
+                            Read More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-</div>
+
 {% endblock %}

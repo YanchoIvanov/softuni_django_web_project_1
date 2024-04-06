@@ -1,15 +1,36 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
-    <div class="container">
-        <div class="main-content">
-            <h2>About Us</h2>
-            <p>{{ company_description }}</p>
-            <h2>Contact Information</h2>
-            <p><strong>Address:</strong> {{ company_address }}</p>
-            <p><strong>Phone:</strong> {{ company_phone }}</p>
-            <p><strong>Email:</strong> <a href="mailto:{{ company_email }}">{{ company_email }}</a></p>
-        </div>
-    </div>
+    <section class="container-contacts">
+        <link rel="stylesheet" href="{% static 'css/contact_us.css' %}">
+        <h1 style="
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-decoration: none;
+            margin-left: 20px">
+            <a href="https://maps.app.goo.gl/bXmuAjkhTWA5Q6nt5"> Find Us </a>
 
+        </h1>
+
+        <h2 style="
+            font-size: 24px;
+            margin-bottom: 10px;
+            margin-left: 20px">
+            Company Information
+        </h2>
+
+        <p style="margin-left: 20px">Company Name: "VEGASTROY" LTD</p>
+        <p style="margin-left: 20px">Address: Burgas Center, ul. "Hristo Botev" 27</p>
+        <p style="margin-left: 20px">Email: office@vegastroy.com</p>
+        <p style="margin-left: 20px">Phone: +359 888-999-999</p>
+
+        <h2 style="margin-left: 20px">Location:</h2>
+        <p>
+            <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d618.4326666946091!2d27.46958751593288!3d42.49627749174913!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbg!4v1712407010643!5m2!1sen!2sbg"
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </p>
+    </section>
 {% endblock %}
