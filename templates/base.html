@@ -61,7 +61,7 @@
                         <button class="button" type="submit">Ask For Offer</button>
                     </form>
 
-                    <form method="post" action="#">
+                    <form method="post" action="{% url 'item_list' %}">
                         {% csrf_token %}
                         <button class="button" type="submit">For Rent</button>
                     </form>

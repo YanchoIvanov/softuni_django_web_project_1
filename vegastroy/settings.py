@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'vegastroy.ask_for_offer',
     'vegastroy.projects',
     'vegastroy.blog',
-
+    'vegastroy.for_rent',
 
 ]
 

@@ -12,6 +12,7 @@ urlpatterns = [
     path('contacts/', include('vegastroy.contacts.urls')),
     path('our_projects/', include('vegastroy.projects.urls')),
     path('blog/', include('vegastroy.blog.urls')),
+    path('for_rent/', include('vegastroy.for_rent.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
