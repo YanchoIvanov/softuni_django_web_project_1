@@ -51,7 +51,7 @@
                         <button class="button" type="submit">Our Projects</button>
                     </form>
 
-                    <form method="post" action="#">
+                    <form method="post" action="{% url 'blog_home'%}">
                         {% csrf_token %}
                         <button class="button" type="submit">Blog</button>
                     </form>
