@@ -7,7 +7,7 @@
         <div class="delete-container">
             <h1>Are you sure you want to delete your account?</h1>
             <form action="{% url 'profile_delete' request.user.pk %}" method="POST">
-                <input class="btn submit" type="submit" value="Yes">
+                <input class="button" type="submit" value="Yes">
                 {% csrf_token %}
             </form>
         </div>

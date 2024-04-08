@@ -8,23 +8,18 @@
         <div class="info-section">
             <div class="profile-header">
                 {% if request.user.profile.profile_picture %}
-                    <img class="profile-img" src="{{ profile.profile_picture.url }}" alt="profile-image"/>
+                    <img class="profile-img" src="{{ request.user.profile.profile_picture }}" alt="profile-image"/>
                 {% else %}
                     <img class="profile-img" src="{% static '/images/profile-placeholder.jpg' %}" alt="profile-image"/>
                 {% endif %}
-
                 {% if request.user.profile.first_name or request.user.profile.last_name %}
-
                     <h1>{{ request.user.profile.first_name }} {{ request.user.profile.last_name }}</h1>
                 {% endif %}
-
                 <p class="description">Email: {{ object.email }}</p>
-
                 <p class="description">Date of Birth: {{ request.user.profile.date_of_birth }}</p>
-
                 <div class="buttons">
-                    <a href="{% url 'profile_edit' request.user.pk %}" class="edit-button">Edit</a>
-                    <a href="{% url 'profile_delete' request.user.pk %}" class="delete-button">Delete</a>
+                    <a href="{% url 'profile_edit' request.user.pk %}" class="button">Edit</a>
+                    <a href="{% url 'profile_delete' request.user.pk %}" class="button" >Delete</a>
                 </div>
             </div>
         </div>

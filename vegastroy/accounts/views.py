@@ -4,9 +4,9 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views import generic as views
-
 from vegastroy.accounts.forms import AppUserCreationForm, AppUserLoginForm, ProfileEditForm
 from vegastroy.accounts.models import Profile
+
 
 UserModel = get_user_model()
 
