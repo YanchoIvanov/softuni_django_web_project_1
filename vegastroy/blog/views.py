@@ -31,7 +31,7 @@ def post_edit(request, pk):
         if form.is_valid():
             form.save()
             messages.success(request, 'Post updated successfully.')
-            return redirect('post_detail', pk=post.pk)
+            return redirect('blog_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/blog_edit.html', {'form': form})

@@ -1,30 +1,16 @@
+{% extends 'base.html' %}
 {% load static %}
-<!-- post_new.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Post</title>
+{% block content %}
+
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-</head>
-<body>
-    <header>
+    <section class="post">
         <h1>New Post</h1>
-    </header>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="button" type="submit">Submit</button>
+        </form>
+    </section>
 
-    <main>
-        <section class="post-form">
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <button type="submit">Submit</button>
-            </form>
-        </section>
-    </main>
 
-    <footer>
-        <p>&copy; 2024 Your Blog</p>
-    </footer>
-</body>
-</html>
+{% endblock %}

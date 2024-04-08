@@ -1,16 +1,17 @@
-<!-- rental/templates/rental/item_list.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Items for Rent</title>
-</head>
-<body>
-    <h1>Items for Rent</h1>
+{% extends 'base.html' %}
+{% block content %}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <title>Items for Rent</title>#}
+{#</head>#}
+
+
     <ul>
+    <h1 class="for_rent">Items for Rent</h1>
         {% for item in items %}
-            <div class="col-md-4" style="margin-top: 25px;">
+
+            <div class="col-md-8" style="margin-top: 25px;">
                 <div class="card mb-2" style="
                 margin: auto;
                 width: 350px;
@@ -22,7 +23,7 @@
                         <h5 class="card-title">{{ item.title }}</h5>
                         <p class="card-text">{{ item.description }}</p>
                         <a href="{% url 'item_details' pk=item.pk %}"
-                           class="btn btn-primary">
+                           class="button">
                             Details
                         </a>
                     </div>
@@ -30,16 +31,11 @@
             </div>
 
 
-
-
-
-
-
-
-
         {% empty %}
             <li>No items available</li>
         {% endfor %}
     </ul>
-</body>
-</html>
+
+{% endblock %}
+
+

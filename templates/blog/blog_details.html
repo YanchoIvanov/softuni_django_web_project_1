@@ -1,39 +1,32 @@
+{% extends 'base.html' %}
 {% load static %}
-<!-- post_detail.html -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ post.title }}</title>
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-</head>
-<body>
-    <header>
+{% block content %}
+    <section class="post">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
         <h1>{{ post.title }}</h1>
         <p class="meta">Published on {{ post.publish_date|date:"F d, Y" }} by {{ post.author }}</p>
+
+
+        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+        <p>{{ post.content }}</p>
+
         {% if user.is_authenticated %}
             {% if user.is_superuser %}
                 <a href="{% url 'blog_edit' pk=post.pk %}" class="button">Edit</a>
                 <a href="{% url 'blog_delete' pk=post.pk %}" class="button">Delete</a>
             {% endif %}
         {% endif %}
-    </header>
 
-    <main>
-        <article class="post">
-            <img src="{{ post.image.url }}" alt="{{ post.title }}">
-            <p>{{ post.content }}</p>
-        </article>
+    </section>
 
-        <section class="comments">
-            <h2>Comments</h2>
-            {% for comment in post.comments.all %}
-                <p>{{ comment.content }} - by {{ comment.user.username }}</p>
-            {% empty %}
-                <p>No comments yet.</p>
-            {% endfor %}
-        </section>
+    <section class="comments">
+        <h2>Comments</h2>
+        {% for comment in post.comments.all %}
+            <p>{{ comment.content }} - by {{ comment.user.email }}</p>
+        {% empty %}
+            <p>No comments yet.</p>
+        {% endfor %}
+
 
         {% if user.is_authenticated %}
             <section class="comment-form">
@@ -41,14 +34,15 @@
                 <form method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <button type="submit">Submit</button>
+
+                    <button class="button" type="submit">Submit</button>
+
                 </form>
             </section>
+            </section>
         {% endif %}
-    </main>
 
-    <footer>
-        <p>&copy; 2024 Your Blog</p>
-    </footer>
-</body>
-</html>
+
+
+
+{% endblock %}
