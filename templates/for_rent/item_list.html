@@ -1,44 +1,41 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
     {#<head>#}
     {#    <meta charset="UTF-8">#}
     {#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
     {#    <title>Items for Rent</title>#}
     {#</head>#}
+    <link rel="stylesheet" href="{% static 'css/for_rent.css' %}">
 
-    <div class="row" style="margin: auto;
-                            margin-top: 50px">
-    <div>
 
-    <h1 style="text-align: center;
-               margin: auto">Items for Rent</h1>
 
-    {% for item in items %}
-        <div class="col-md-4" style="margin-top: 25px;">
-            <div class="card mb-2" style="
-                margin: auto;
-                width: 650px;
-                align-content: center">
-                {% if item.image %}
-                    <img class="card-img-top" src="{{ item.image.url }}">
-                {% endif %}
-                <div class="card-body">
-                    <h5 class="card-title">{{ item.title }}</h5>
-                    <p class="card-text">{{ item.description }}</p>
-                    <a href="{% url 'item_details' pk=item.pk %}"
-                       class="button">
-                        Details
-                    </a>
+    <div class="row row-additional">
+
+        <div>
+            <h1>Items for Rent</h1>
+        </div>
+
+
+        {% for item in items %}
+            <div class="col-md-4 col-md-4-additional">
+                <div class="card mb-2 card-mb-2-additional">
+                    {% if item.image %}
+                        <img class="card-img-top" src="{{ item.image.url }}" alt="Item image">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.title }}</h5>
+                        <p class="card-text">{{ item.description }}</p>
+                        <a href="{% url 'item_details' pk=item.pk %}" class="button">Details</a>
+                    </div>
                 </div>
             </div>
         </div>
 
-
-    {% empty %}
-        <li>No items available</li>
-    {% endfor %}
+        {% empty %}
+            <li>No items available</li>
+        {% endfor %}
 
 
 {% endblock %}
-
 

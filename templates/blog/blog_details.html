@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load custom_filters %}
 {% block content %}
     <section class="post">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
@@ -33,8 +34,7 @@
                 <h2>Add a Comment</h2>
                 <form method="post">
                     {% csrf_token %}
-                    {{ form.as_p }}
-
+                    {{ form.content }}
                     <button class="button" type="submit">Submit</button>
 
                 </form>

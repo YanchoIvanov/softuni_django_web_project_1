@@ -1,10 +1,8 @@
-/* styles.css */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
-
 
 main {
     padding: 10%;
@@ -74,6 +72,7 @@ main {
 
 .comment-form {
     margin-top: 20px;
+    margin-left: 20px;
 }
 
 .comments {
@@ -109,4 +108,26 @@ main {
     letter-spacing: 2px;
     font-family: 'Cinzel', serif;
     margin-bottom: 14px;
+}
+
+input {
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+}
+
+form textarea {
+    width: calc(100% - 20px);
+    height: 80px;
+    padding: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
 }

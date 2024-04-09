@@ -3,24 +3,23 @@
 {% block content %}
 
 
-    <!DOCTYPE html>
-    <html lang="en">
     {#<head>#}
     {#    <meta charset="UTF-8">#}
     {#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
     {#    <title>{{ item.title }}</title>#}
     {#</head>#}
+
     <section class="for_rent">
         <link rel="stylesheet" href="{% static 'css/for_rent.css' %}">
-        <h1>{{ item.title }}</h1>
-        <img src="{{ item.image.url }}">
-        <br>
+            <h1>{{ item.title }}</h1>
+                <img src="{{ item.image.url }}" alt="Item Image">
+            <br>
         <p>{{ item.description }}</p>
-        {% if item.availability %}
-            <p style="color: blue">This item is available</p>
+            {% if item.availability %}
+                <p style="color: blue">This item is available</p>
             <form method="post">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {{ form.message }}
                 <button class="button" type="submit">Request Availability</button>
             </form>
         {% else %}
