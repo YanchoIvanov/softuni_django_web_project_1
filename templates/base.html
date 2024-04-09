@@ -1,18 +1,12 @@
 {% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
 
 <head>
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="icon" type="image/x-icon" href="{% static 'images/crane.jpg' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
     <title>VEGASTROY LTD</title>
 </head>
-
-
-<body>
 
 
 <header>
@@ -23,64 +17,50 @@
                     <img width="80px" src="{% static 'images/vegastroy.JPG' %}" alt="img1">
                 </a>
 
-
                 <a class="home" href="{% url 'home_page' %}">
                     <i>VEGASTROY LTD</i>
                 </a>
             </div>
 
-
             <ul class="nav-group">
-
-
                 {% if not request.user.is_authenticated %}
-
                     <form method="post" action="{% url 'login' %}">
                         {% csrf_token %}
                         <button class="button" type="submit">Login</button>
                     </form>
-
                     <form method="post" action="{% url 'register' %}">
                         {% csrf_token %}
                         <button class="button" type="submit">Register</button>
                     </form>
-
                 {% else %}
                     <form method="post" action="{% url 'project_index' %}">
                         {% csrf_token %}
                         <button class="button" type="submit">Our Projects</button>
                     </form>
-
-                    <form method="post" action="{% url 'blog_home'%}">
+                    <form method="post" action="{% url 'blog_home' %}">
                         {% csrf_token %}
                         <button class="button" type="submit">Blog</button>
                     </form>
-
                     <form method="post" action="{% url 'contact_form_offer' %}">
                         {% csrf_token %}
                         <button class="button" type="submit">Ask For Offer</button>
                     </form>
-
                     <form method="post" action="{% url 'item_list' %}">
                         {% csrf_token %}
                         <button class="button" type="submit">For Rent</button>
                     </form>
-
                     <form method="post" action="{% url 'contacts_page' %}">
                         {% csrf_token %}
                         <button class="button" type="submit">Contact Us</button>
                     </form>
-
                     <form method="get" action="{% url 'profile_details' user.pk %}">
                         {% csrf_token %}
                         <button class="button" type="submit">Profile</button>
                     </form>
-
                     <form method="post" action="{% url 'logout' %}">
                         {% csrf_token %}
                         <button class="button" type="submit">Logout</button>
                     </form>
-
                 {% endif %}
             </ul>
         </div>
@@ -103,7 +83,3 @@
         <p>&copy; 2024 All Rights Reserved by dipl. eng. Yancho Ivanov</p>
     </div>
 </footer>
-
-
-</body>
-</html>

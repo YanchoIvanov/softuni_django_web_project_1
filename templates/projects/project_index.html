@@ -2,29 +2,23 @@
 {% load static %}
 {% block content %}
 
-{#    <link rel="stylesheet" href="{% static 'css/project_index.css' %}">#}
-    <div class="row" style="margin: auto;
-                            margin-top: 50px">
+    <link rel="stylesheet" href="{% static 'css/project_index.css' %}">
+    <div class="row row-additional">
         <div>
-        <h1 style="text-align: center;
-           margin: auto">Some of our projects!</h1>
+            <h1 class="h1-class">Some of our projects!</h1>
         </div>
         {% for project in projects %}
-            <div class="col-md-4" style="margin-top: 25px;">
-                <div class="card mb-2" style="
-                                        margin: auto;
-                                        width: 350px;
-                                        align-content: center">
+            <div class="col-md-4 additional-4">
+                <div class="card mb-2 additional-2">
+
                     {% if project.image %}
-                        <img class="card-img-top" src="{{ project.image.url }}">
+                        <img class="card-img-top" src="{{ project.image.url }}" alt="Project Image">
                     {% endif %}
+
                     <div class="card-body">
                         <h5 class="card-title">{{ project.title }}</h5>
                         <p class="card-text">{{ project.description }}</p>
-                        <a href="{% url 'project_detail' project.pk %}"
-                           class="btn btn-primary">
-                            Read More
-                        </a>
+                        <a href="{% url 'project_detail' project.pk %}" class="button">Read More</a>
                     </div>
                 </div>
             </div>

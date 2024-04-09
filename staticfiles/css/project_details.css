@@ -1,10 +1,24 @@
-.title-tex {
-	padding: 1px;
-	margin: auto;
-	position: relative;
-	top: 50%;
-	font-size: 30px;
-	line-height: 1.5;
-	transform: translateY(-50%);
-	perspective: 400px;
+.row-extend {
+	margin-left: 25%;
+	--bs-gutter-x: 0;
+}
+
+.col-md-8-extend {
+	margin-top: 75px;
+}
+
+.container-text {
+    margin-bottom: 30px;
+    position: relative;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 800px;
+    background-blend-mode: multiply;
+    z-index: 2;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
 }
