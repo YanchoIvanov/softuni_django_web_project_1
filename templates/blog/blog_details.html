@@ -21,11 +21,11 @@
     </section>
 
     <section class="comments">
-        <h2>Comments</h2>
+        <h2 style="margin-left: 25px">Comments</h2>
         {% for comment in post.comments.all %}
-            <p>{{ comment.content }} - by {{ comment.user.email }}</p>
+            <p style="margin-left: 25px">{{ comment.content }} - by {{ comment.user.email }}</p>
         {% empty %}
-            <p>No comments yet.</p>
+            <p style="margin-left: 25px">No comments yet.</p>
         {% endfor %}
 
 

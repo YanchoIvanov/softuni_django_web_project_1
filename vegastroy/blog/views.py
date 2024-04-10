@@ -7,7 +7,12 @@ from django.contrib import messages
 
 def post_list(request):
     posts = Post.objects.all()
-    return render(request, 'blog/blog_index.html', {'posts': posts})
+
+    context = {
+        'posts': posts,
+    }
+
+    return render(request, 'blog/blog_index.html', context)
 
 
 def post_detail(request, pk):
@@ -20,7 +25,13 @@ def post_detail(request, pk):
             comment.post = post
             comment.user = request.user
             comment.save()
-    return render(request, 'blog/blog_details.html', {'post': post, 'form': form})
+
+    context = {
+        'post': post,
+        'form': form,
+    }
+
+    return render(request, 'blog/blog_details.html', context)
 
 
 @login_required
@@ -34,7 +45,12 @@ def post_edit(request, pk):
             return redirect('blog_detail', pk=post.pk)
     else:
         form = PostForm(instance=post)
-    return render(request, 'blog/blog_edit.html', {'form': form})
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'blog/blog_edit.html', context)
 
 
 @login_required
@@ -44,7 +60,12 @@ def post_delete(request, pk):
         post.delete()
         messages.success(request, 'Post deleted successfully.')
         return redirect('blog_home')
-    return render(request, 'blog/blog_delete.html', {'post': post})
+
+    context = {
+        'post': post,
+    }
+
+    return render(request, 'blog/blog_delete.html', context)
 
 
 @login_required
@@ -56,7 +77,12 @@ def post_new(request):
             post.author = request.user
             post.save()
             messages.success(request, 'Post created successfully.')
-            return redirect('blog_home', pk=post.pk)
+            return redirect('blog_home')
     else:
         form = PostForm()
-    return render(request, 'blog/blog_new.html', {'form': form})
+
+    context = {
+        'form': form,
+    }
+
+    return render(request, 'blog/blog_new.html', context)

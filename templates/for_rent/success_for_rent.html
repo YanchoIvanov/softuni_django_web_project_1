@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <link rel="stylesheet" href="{% static 'css/success_for_rent.css' %}">
+    <div class="success-container">
+    <h1>You have successfully rented {{ item.title }}! You will be redirected to the home page.</h1>
+    <p>If you are not redirected in a few seconds, <a href="{% url 'home_page' %}">click here</a>.</p>
+    <script>
+        setTimeout(function () {
+            window.location.href = '/';
+        }, 8000);
+    </script>
+    </div>
+
+{% endblock %}
