@@ -4,13 +4,15 @@
 
     <link rel="stylesheet" href="{% static 'css/project_index.css' %}">
     <div class="row row-additional">
+        {% if projects %}
         <div>
             <h1 class="h1-class">Some of our projects!</h1>
         </div>
+        {% endif %}
         {% for project in projects %}
             <div class="col-md-4 additional-4">
                 <div class="card mb-2 additional-2">
-
+                    {% csrf_token %}
                     {% if project.image %}
                         <img class="card-img-top" src="{{ project.image.url }}" alt="Project Image">
                     {% endif %}
@@ -22,6 +24,8 @@
                     </div>
                 </div>
             </div>
+        {% empty %}
+            <h1>No projects.</h1>
         {% endfor %}
     </div>
 

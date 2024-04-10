@@ -4,13 +4,15 @@
 
     <link rel="stylesheet" href="{% static 'css/for_rent.css' %}">
     <div class="row row-additional">
+        {% if items %}
         <div>
             <h1 class="h1-class">Items for rent.</h1>
         </div>
+        {% endif %}
         {% for item in items %}
             <div class="col-md-4 additional-4">
                 <div class="card mb-2 additional-2">
-
+                    {% csrf_token %}
                     {% if item.image %}
                         <img class="card-img-top" src="{{ item.image.url }}" alt="Project Image">
                     {% endif %}
@@ -22,6 +24,8 @@
                     </div>
                 </div>
             </div>
+            {% empty %}
+            <h1>No items available.</h1>
         {% endfor %}
     </div>
 
