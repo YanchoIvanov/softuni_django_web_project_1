@@ -7,7 +7,6 @@
     padding: 10px;
     border: 3px solid #E2E8EA;
     border-radius: 100px;
-
 }
 
 * {
@@ -56,92 +55,27 @@ label:nth-of-type(2) {
     margin-top: 10px;
 }
 
-label[for="female"] {
-    margin-top: 10px;
-}
-
 input[type="number"],
 input[type="password"],
 input[type="email"],
 input[type="text"],
 input[type="url"]{
     background: #ecf0f3;
-    padding: 20px 20px 20px 20px;
+
     height: 50px;
-    margin-top: 10px;
-    font-size: 17px;
-    border-radius: 50px;
+
     box-shadow: inset 6px 6px 6px #c0c2c5, inset -6px -6px 6px white;
-}
 
-select {
-    background: #ecf0f3;
-    padding: 10px 20px 10px 20px;
-    height: 50px;
-    margin-top: 10px;
-    font-size: 17px;
-    border-radius: 50px;
-    box-shadow: inset 6px 6px 6px #c0c2c5, inset -6px -6px 6px white;
-}
 
-label[for="terms"] > input,
-label[for="terms"] > select{
-    display: inline;
-}
+    display: block;
 
-.btn{
-    color: black;
-    border: none;
-    margin-top: 30px;
-    font-weight: 600;
-    height: 50px;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    cursive: pointer;
-    border-radius: 20px;
-    transition: 0.5s;
-    transition-property: box-shadow;
-}
-
-.btn{
-    background: white;
-    box-shadow: 0 0 25px grey;
-}
-
-.btn:hover{
-    box-shadow: 0 0 50px burlywood;
-}
-
-.edit-container {
-    text-align: left;
-    margin-top: 0;
-
-}
-
-.field > span {
-    position: absolute;
-    font-size: 18px;
-    bottom: 17px;
-    right: 8px;
-    text-decoration: none;
-    color: black;
-    background: rgb(235, 157, 142);
-    border-radius: 10px;
-    padding: 5px;
-}
-
-textarea {
     width: 100%;
-    min-width: 20vw;
-    min-height: 7em;
-    border: 2px solid #86a480;
-    border-radius: 0.7em;
-    font-size: 17px;
-    border-bottom-color: #ecf0f3;
-    background-color: #ecf0f3;
-    border-right-color: #ecf0f3;
-    margin-top: 7px;
-    box-shadow: inset 6px 6px 6px #c0c2c5, inset -6px -6px 6px white;
+    background-color: rgba(255, 255, 255, 0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
 }
 
 .errorlist{
